@@ -47,7 +47,7 @@ export class Character extends CharacterStats {
     }
 
     const damageTaken: number = attackProfile.damage - (defenceProfile.mitigation * 0.5);
-    if (damageTaken < 0) {
+    if (damageTaken <= 0) {
       return "absorbed";
     }
 
