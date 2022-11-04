@@ -14,9 +14,8 @@
 
 <div class="flex flex-around c-margin-1">
   <div *ngIf="playerOne">
-    <h3>Player One</h3>
+    <h3>{{playerOne.name}}</h3>
     <hr>
-    <div>Name: {{playerOne.name}}</div>
     <div>Health: {{playerOne.health}}</div>
     <div></div>
     <div>Strength: {{playerOne.strength}}</div>
@@ -25,9 +24,8 @@
   </div>
 
   <div *ngIf="playerTwo">
-    <h3>Player Two</h3>
+    <h3>{{playerTwo.name}}</h3>
     <hr>
-    <div>Name: {{playerTwo.name}}</div>
     <div>Health: {{playerTwo.health}}</div>
     <div></div>
     <div>Strength: {{playerTwo.strength}}</div>
@@ -38,7 +36,7 @@
 
 <div *ngIf="gameResult">
   <div class="flex flex-around">
-    <h3 class="text-center">Winner: {{gameResult.winner.name}}</h3>
+    <h3 class="text-center">{{gameResult.winner.name}} Wins!</h3>
     <h3 class="text-center">Combat Log</h3>
     <h3 class="text-center">Health Remaining: {{gameResult.winner.health}}</h3>
   </div>
