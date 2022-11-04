@@ -34,7 +34,7 @@ export class Character extends CharacterStats {
     return defenceProfile;
   }
 
-  public takeAttack(attackProfile: IAttackProfile): number | string {
+  public takeAttack(attackProfile: IAttackProfile): string {
     const defenceProfile: IDefenceProfile = this.getDefenceProfile();
 
     const didDodge: boolean = (defenceProfile.dodge * 0.5) > attackProfile.hit;
@@ -48,11 +48,11 @@ export class Character extends CharacterStats {
 
     const damageTaken: number = attackProfile.damage - (defenceProfile.mitigation * 0.5);
     if (damageTaken < 0) {
-      return "mitigated";
+      return "absorbed";
     }
 
     this.health -= damageTaken;
-    return damageTaken;
+    return `${damageTaken} damage`;
   }
 
 
