@@ -1,0 +1,56 @@
+<div *ngIf="!gameResult">
+  <div class="flex flex-center c-margin-1">
+    <button (click)="generate()">Generate</button>
+    <button (click)="play()">Play</button>
+  </div>
+</div>
+
+<div *ngIf="gameResult">
+  <div class="flex flex-center c-margin-1">
+    <button (click)="reset()">Generate</button>
+    <button (click)="play()">Replay</button>
+  </div>
+</div>
+
+<div class="flex flex-around c-margin-1">
+  <div *ngIf="playerOne">
+    <h3>Player One</h3>
+    <hr>
+    <div>Name: {{playerOne.name}}</div>
+    <div>Health: {{playerOne.health}}</div>
+    <div></div>
+    <div>Strength: {{playerOne.strength}}</div>
+    <div>Stamina: {{playerOne.stamina}}</div>
+    <div>Dexterity: {{playerOne.dexterity}}</div>
+  </div>
+
+  <div *ngIf="playerTwo">
+    <h3>Player Two</h3>
+    <hr>
+    <div>Name: {{playerTwo.name}}</div>
+    <div>Health: {{playerTwo.health}}</div>
+    <div></div>
+    <div>Strength: {{playerTwo.strength}}</div>
+    <div>Stamina: {{playerTwo.stamina}}</div>
+    <div>Dexterity: {{playerTwo.dexterity}}</div>
+  </div>
+</div>
+
+<div *ngIf="gameResult">
+  <div class="flex flex-around">
+    <h3 class="text-center">Winner: {{gameResult.winner.name}}</h3>
+    <h3 class="text-center">Combat Log</h3>
+    <h3 class="text-center">Health Remaining: {{gameResult.winner.health}}</h3>
+  </div>
+  <hr>
+  <div class="flex flex-center">
+    <ol>
+      <li *ngFor="let entry of gameResult.combatLog" class="c-margin-1">
+        <span>Actor: {{entry.actor}}</span>
+        <span>Target: {{entry.target}}</span>
+        <span>Result: {{entry.result}}</span>
+      </li>
+    </ol>
+  </div>
+
+</div>
